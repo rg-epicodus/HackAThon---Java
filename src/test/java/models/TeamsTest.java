@@ -61,5 +61,11 @@ public class TeamsTest {
         assertEquals(1, Teams.findById(Teams.getTeamId()).getTeamId());
     }
 
+    @Test
+    public void findReturnsCorrectTeamWhenMoreThanOneTeamExists_true() throws Exception {
+        Teams testTeams = new Teams("Epicodus", "Class of Summer 2017");
+        Teams testOtherTeams = new Teams("Epicodus", "Class of Summer 2017");
+        assertEquals(1, Teams.findById(testOtherTeams.getTeamId()).getTeamId());
+    }
 
 }
