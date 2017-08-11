@@ -62,7 +62,7 @@ public class Teams {
     }
 
 
-//    public void updateTeamName(String teamName) {
-//        this.teamName = teamName;
-//    }
+    public void updateTeamName(String teamName) {
+        this.teamName = teamName;
+    }
 }

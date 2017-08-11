@@ -77,17 +77,17 @@ public class TeamsTest {
     }
 
 
-//    @Test
-//    public void updateChangesTeamsName_true() throws Exception {
-//        Teams newTeam = setupNewTeam();
-//        String formerTeamName = newTeam.getTeamName();
-//        LocalDateTime formerDate = newTeam.getTeamCreatedAt();
-//        int formerId = newTeam.getTeamId();
-//        newTeam.updateTeamName("Portland Code Guild");
-//        assertEquals(formerId, newTeam.getTeamId());
-//        assertEquals(formerDate, newTeam.getTeamCreatedAt());
-//        assertNotEquals(formerTeamName, newTeam.getTeamName());
-//    }
+    @Test
+    public void updateChangesTeamsName_true() throws Exception {
+        Teams newTeam = setupNewTeam();
+        String formerTeamName = newTeam.getTeamName();
+        LocalDateTime formerDate = newTeam.getTeamCreatedAt();
+        int formerId = newTeam.getTeamId();
+        newTeam.updateTeamName("Portland Code Guild");
+        assertEquals(formerId, newTeam.getTeamId());
+        assertEquals(formerDate, newTeam.getTeamCreatedAt());
+        assertNotEquals(formerTeamName, newTeam.getTeamName());
+    }
 
 
 
