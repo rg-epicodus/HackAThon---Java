@@ -93,9 +93,13 @@ public class TeamsTest {
     public void newTeamInstantiatesWithTeamDescription_ClassOf2017() throws Exception {
         Teams newTeam = setupNewTeam();
         assertEquals( "Class of Summer 2017",  newTeam.getTeamDescription());
-
     }
 
+    @Test
+    public void newTeamInstantiatesWithTeamMembers_Pat() throws Exception {
+        Teams newTeam = setupNewTeam();
+        assertEquals( "Pat",  newTeam.getTeamMembers());
+    }
 
 
     //helper
