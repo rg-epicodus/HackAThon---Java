@@ -76,6 +76,20 @@ public class TeamsTest {
 
     }
 
+    @Test
+    public void updateChangesTeamsContent() throws Exception {
+        Teams post = setupNewTeam();
+        String formerTeamName = post.getTeamName();
+        LocalDateTime formerDate = post.getTeamCreatedAt();
+        int formerId = post.getTeamId();
+        post.updateTeamName("Portland Code Guild");
+        assertEquals(formerId, post.getTeamId());
+        assertEquals(formerDate, post.getTeamCreatedAt());
+        assertNotEquals(formerTeamName, post.getTeamName());
+    }
+
+
+
     //helper
     public Teams setupNewTeam(){
         return new Teams("Epicodus","Class of Summer 2017" );
