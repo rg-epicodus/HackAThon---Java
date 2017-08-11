@@ -1,7 +1,10 @@
 package models;
 
+import java.util.ArrayList;
+
 public class Teams {
     private String teams;
+    private static ArrayList<Teams> instances = new ArrayList<>();
 
 
 
@@ -9,6 +12,7 @@ public class Teams {
 
     public Teams(String teams) {
         this.teams = teams;
+        instances.add(this);
     }
 
 
@@ -17,5 +21,9 @@ public class Teams {
 
     public String getTeams() {
         return teams;
+    }
+
+    public static ArrayList<Teams> getAllTeams(){
+        return instances;
     }
 }
