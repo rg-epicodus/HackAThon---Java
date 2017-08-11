@@ -58,7 +58,7 @@ public class TeamsTest {
     @Test
     public void findReturnsCorrectTeamID_true() throws Exception {
         Teams testTeams = new Teams("Epicodus", "Class of Summer 2017");
-        assertEquals(1, Teams.findById(Teams.getTeamId()).getId());
+        assertEquals(1, Teams.findById(Teams.getTeamId()).getTeamId());
     }
 
 

@@ -43,4 +43,14 @@ public class Teams {
     public static int getTeamId() {
         return id;
     }
+
+    public static Teams findById(int id){
+        Teams test= null;
+        for (Teams allTeam : allTeams) {
+            if (allTeam.getTeamId() == id) {
+                test = allTeam;
+            }
+        }
+        return test;
+    }
 }
