@@ -16,10 +16,10 @@ public class TeamsTest {
     }
 
     @Test
-    public void newTeamsInstanceGetsCorrectlyCreated_true() throws Exception{
+    public void newTeamsInstanceGetsCorrectlyCreated_true() throws Exception {
         Teams testTeams = new Teams();
-        assertEquals(false, testTeams instanceof Teams);
-
+        assertEquals(true, testTeams instanceof Teams);
+    }
 
 
 
