@@ -10,18 +10,18 @@ public class Teams {
     private static ArrayList<Teams> allTeams = new ArrayList<>();
     private static int id;
     private static int teamListTotal;
-    private LocalDateTime createdAt;
-
+    private LocalDateTime teamCreatedAt;
 
 
     //Constructor
+
     public Teams(String teamName, String teamDescription) {
         this.teamName = teamName;
         this.teamDescription = teamDescription;
-        teamListTotal++;
-        this.id = teamListTotal;
-        this.createdAt = LocalDateTime.now();
+        this.teamCreatedAt = LocalDateTime.now();
         allTeams.add(this);
+        this.id = allTeams.size();
+        teamListTotal++;
     }
 
     //Getters
@@ -43,6 +43,10 @@ public class Teams {
         allTeams.clear();
     }
 
+    public LocalDateTime getTeamCreatedAt() {
+        return teamCreatedAt;
+    }
+
     public static int getTeamId() {
         return id;
     }
@@ -57,7 +61,8 @@ public class Teams {
         return test;
     }
 
-    public LocalDateTime getTeamCreatedAt() {
-        return createdAt;
-    }
+
+//    public void updateTeamName(String teamName) {
+//        this.teamName = teamName;
+//    }
 }

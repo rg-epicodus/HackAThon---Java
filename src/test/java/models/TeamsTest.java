@@ -22,76 +22,77 @@ public class TeamsTest {
 
     @Test
     public void newTeamsInstanceGetsCorrectlyCreated_true() throws Exception {
-        Teams testTeams = new Teams("Epicodus", "Class of Summer 2017");
-        assertEquals(true, testTeams instanceof Teams);
+        Teams newTeam = setupNewTeam();
+        assertEquals(true, newTeam instanceof Teams);
     }
 
     @Test
     public void newTeamsInstantiatesWithContent_Epicodus() throws Exception {
-        Teams testTeams = new Teams("Epicodus", "Class of Summer 2017");
-        assertEquals( "Epicodus", testTeams.getTeamName());
+        Teams newTeam = setupNewTeam();
+        assertEquals( "Epicodus", newTeam.getTeamName());
     }
 
     @Test
     public void getAllTeams_AllTeamsAreReturnedCorrectly_true() throws Exception {
-        Teams testTeams = new Teams("Epicodus", "Class of Summer 2017");
-        Teams testOtherTeams = new Teams("Epicodus", "Class of Summer 2017");
+        Teams newTeam = setupNewTeam();
+        Teams newOtherTeam = setupNewTeam();
         assertEquals(2, Teams.getAllTeams().size());
 
     }
 
     @Test
     public void getAllTeams_ReturnsAllTeamsInfo_true() throws Exception {
-        Teams testTeams = new Teams("Epicodus", "Class of Summer 2017");
-        Teams testOtherTeams = new Teams("Epicodus", "Class of Summer 2017");
-        assertEquals(true, Teams.getAllTeams().contains(testTeams));
-        assertEquals(true, Teams.getAllTeams().contains(testOtherTeams));
+        Teams newTeam = setupNewTeam();
+        Teams newOtherTeam = setupNewTeam();
+        assertEquals(true, Teams.getAllTeams().contains(newTeam));
+        assertEquals(true, Teams.getAllTeams().contains(newOtherTeam));
+
+    }
+
+    @Test
+    public void getTeamCreatedAt_instantiatesWithCurrentTime_today() throws Exception {
+        Teams newTeam = setupNewTeam();
+        assertEquals(LocalDateTime.now().getDayOfWeek(), newTeam.getTeamCreatedAt().getDayOfWeek());
 
     }
 
     @Test
     public void getTeamId_postInstantiatesWithAnID_1() throws Exception {
         Teams.clearAllTeams();
-        Teams testTeams = new Teams("Epicodus", "Class of Summer 2017");
-        assertEquals(1, Teams.getTeamId());
+        Teams newTeam = setupNewTeam();
+        assertEquals(1, newTeam.getTeamId());
     }
 
     @Test
     public void findReturnsCorrectTeamID_true() throws Exception {
-        Teams testTeams = new Teams("Epicodus", "Class of Summer 2017");
-        assertEquals(1, Teams.findById(Teams.getTeamId()).getTeamId());
+        Teams newTeam = setupNewTeam();
+        assertEquals(1, Teams.findById(newTeam.getTeamId()).getTeamId());
     }
 
     @Test
     public void findReturnsCorrectTeamWhenMoreThanOneTeamExists_true() throws Exception {
-        Teams testTeams = new Teams("Epicodus", "Class of Summer 2017");
-        Teams testOtherTeams = new Teams("Epicodus", "Class of Summer 2017");
-        assertEquals(2, Teams.findById(testOtherTeams.getTeamId()).getTeamId());
+        Teams newTeam = setupNewTeam();
+        Teams newOtherTeam = setupNewTeam();
+        assertEquals(2, Teams.findById(newOtherTeam.getTeamId()).getTeamId());
     }
 
-    @Test
-    public void getTeamCreatedAt_instantiatesWithCurrentTime_today() throws Exception {
-        Teams myTeam = setupNewTeam();
-        assertEquals(LocalDateTime.now().getDayOfWeek(), myTeam.getTeamCreatedAt().getDayOfWeek());
 
-    }
-
-    @Test
-    public void updateChangesTeamsContent() throws Exception {
-        Teams post = setupNewTeam();
-        String formerTeamName = post.getTeamName();
-        LocalDateTime formerDate = post.getTeamCreatedAt();
-        int formerId = post.getTeamId();
-        post.updateTeamName("Portland Code Guild");
-        assertEquals(formerId, post.getTeamId());
-        assertEquals(formerDate, post.getTeamCreatedAt());
-        assertNotEquals(formerTeamName, post.getTeamName());
-    }
+//    @Test
+//    public void updateChangesTeamsName_true() throws Exception {
+//        Teams newTeam = setupNewTeam();
+//        String formerTeamName = newTeam.getTeamName();
+//        LocalDateTime formerDate = newTeam.getTeamCreatedAt();
+//        int formerId = newTeam.getTeamId();
+//        newTeam.updateTeamName("Portland Code Guild");
+//        assertEquals(formerId, newTeam.getTeamId());
+//        assertEquals(formerDate, newTeam.getTeamCreatedAt());
+//        assertNotEquals(formerTeamName, newTeam.getTeamName());
+//    }
 
 
 
     //helper
     public Teams setupNewTeam(){
-        return new Teams("Epicodus","Class of Summer 2017" );
+        return new Teams("Epicodus","Class of Summer 2017");
     }
 }
