@@ -17,14 +17,14 @@ public class TeamsTest {
 
     @Test
     public void newTeamsInstanceGetsCorrectlyCreated_true() throws Exception {
-        Teams testTeams = new Teams();
+        Teams testTeams = new Teams("Epicodus");
         assertEquals(true, testTeams instanceof Teams);
     }
 
     @Test
     public void newTeamsInstantiatesWithContent_true() throws Exception {
         Teams testTeams = new Teams("Epicodus");
-        assertEquals( true, testTeam.getTeams());
+        assertEquals( "Epicodus", testTeams.getTeams());
     }
 
 
