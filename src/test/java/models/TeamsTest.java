@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -68,4 +69,15 @@ public class TeamsTest {
         assertEquals(2, Teams.findById(testOtherTeams.getTeamId()).getTeamId());
     }
 
+    @Test
+    public void getTeamCreatedAt_instantiatesWithCurrentTime_today() throws Exception {
+        Teams myTeam = setupNewTeam();
+        assertEquals(LocalDateTime.now().getDayOfWeek(), myTeam.getTeamCreatedAt().getDayOfWeek());
+
+    }
+
+    //helper
+    public Teams setupNewTeam(){
+        return new Teams("Epicodus","Class of Summer 2017" );
+    }
 }
