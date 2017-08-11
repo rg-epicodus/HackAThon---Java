@@ -7,7 +7,7 @@ public class Teams {
     private String teamName;
     private String teamDescription;
     private static ArrayList<Teams> allTeams = new ArrayList<>();
-    private int id;
+    private static int id;
     private static int teamListTotal;
 
 
@@ -40,4 +40,7 @@ public class Teams {
         allTeams.clear();
     }
 
+    public static int getTeamId() {
+        return id;
+    }
 }
