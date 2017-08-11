@@ -4,6 +4,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class TeamsTest {
@@ -18,40 +21,39 @@ public class TeamsTest {
 
     @Test
     public void newTeamsInstanceGetsCorrectlyCreated_true() throws Exception {
-        Teams testTeams = new Teams("Epicodus");
+        Teams testTeams = new Teams("Epicodus", "Class of Summer 2017");
         assertEquals(true, testTeams instanceof Teams);
     }
 
     @Test
     public void newTeamsInstantiatesWithContent_Epicodus() throws Exception {
-        Teams testTeams = new Teams("Epicodus");
-        assertEquals( "Epicodus", testTeams.getTeams());
+        Teams testTeams = new Teams("Epicodus", "Class of Summer 2017");
+        assertEquals( "Epicodus", testTeams.getTeamName());
     }
 
     @Test
     public void getAllTeams_AllTeamsAreReturnedCorrectly_true() throws Exception {
-        Teams testTeams = new Teams("Epicodus");
-        Teams testOtherTeams = new Teams("Portland Code Guild");
+        Teams testTeams = new Teams("Epicodus", "Class of Summer 2017");
+        Teams testOtherTeams = new Teams("Epicodus", "Class of Summer 2017");
         assertEquals(2, Teams.getAllTeams().size());
 
     }
 
     @Test
     public void getAllTeams_ReturnsAllTeamsInfo_true() throws Exception {
-        Teams testTeams = new Teams("Epicodus");
-        Teams testOtherTeams = new Teams("Portland Code Guild");
+        Teams testTeams = new Teams("Epicodus", "Class of Summer 2017");
+        Teams testOtherTeams = new Teams("Epicodus", "Class of Summer 2017");
         assertEquals(true, Teams.getAllTeams().contains(testTeams));
         assertEquals(true, Teams.getAllTeams().contains(testOtherTeams));
 
     }
 
     @Test
-    public void getAllTeamMembers_ReturnsTeamMember_true() throws Exception {
-        teamMember newMember = new teamMember("Jo");
-        teamMember newOtherMember = new teamMember("Pat");
-        assertEquals(2, teamMember.getAllMembers().size());
+    public void getId_postInstantiatesWithAnID_1() throws Exception {
+        Teams.clearAllTeams();
+        Teams testTeams = new Teams("Epicodus", "Class of Summer 2017");
+        assertEquals(1, Teams.getTeamId());
     }
-
 
 
 }

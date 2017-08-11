@@ -1,33 +1,43 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Teams {
-    private String teams;
-    private static ArrayList<Teams> instances = new ArrayList<>();
+    private String teamName;
+    private String teamDescription;
+    private static ArrayList<Teams> allTeams = new ArrayList<>();
+    private int id;
+    private static int teamListTotal;
 
 
 
     //Constructor
-
-    public Teams(String teams) {
-        this.teams = teams;
-        instances.add(this);
+    public Teams(String teamName, String teamDescription) {
+        this.teamName = teamName;
+        this.teamDescription = teamDescription;
+        teamListTotal++;
+        this.id = teamListTotal;
+        allTeams.add(this);
     }
-
 
     //Getters
 
 
-    public String getTeams() {
-        return teams;
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public String getTeamDescription() {
+        return teamDescription;
     }
 
     public static ArrayList<Teams> getAllTeams(){
-        return instances;
+        return allTeams;
     }
 
     public static void clearAllTeams(){
-        instances.clear();
+        allTeams.clear();
     }
+
 }

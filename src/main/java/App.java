@@ -24,7 +24,7 @@ public class App {
         post("/teams/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             String teamName = request.queryParams("teamName");
-            Teams newTeams = new Teams(teamName);
+            model.put("teamName", teamName);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
