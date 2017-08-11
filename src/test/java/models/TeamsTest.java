@@ -89,6 +89,13 @@ public class TeamsTest {
         assertNotEquals(formerTeamName, newTeam.getTeamName());
     }
 
+    @Test
+    public void newTeamInstantiatesWithTeamDescription_ClassOf2017() throws Exception {
+        Teams newTeam = setupNewTeam();
+        assertEquals( "Class of Summer 2017",  newTeam.getTeamDescription());
+
+    }
+
 
 
     //helper

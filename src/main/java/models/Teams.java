@@ -31,9 +31,6 @@ public class Teams {
         return teamName;
     }
 
-    public String getTeamDescription() {
-        return teamDescription;
-    }
 
     public static ArrayList<Teams> getAllTeams(){
         return allTeams;
