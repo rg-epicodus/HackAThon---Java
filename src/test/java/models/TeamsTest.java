@@ -49,10 +49,16 @@ public class TeamsTest {
     }
 
     @Test
-    public void getId_postInstantiatesWithAnID_1() throws Exception {
+    public void getTeamId_postInstantiatesWithAnID_1() throws Exception {
         Teams.clearAllTeams();
         Teams testTeams = new Teams("Epicodus", "Class of Summer 2017");
         assertEquals(1, Teams.getTeamId());
+    }
+
+    @Test
+    public void findReturnsCorrectTeamID_true() throws Exception {
+        Teams testTeams = new Teams("Epicodus", "Class of Summer 2017");
+        assertEquals(1, Teams.findById(Teams.getTeamId()).getId());
     }
 
 
