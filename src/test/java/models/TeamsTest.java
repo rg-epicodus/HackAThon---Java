@@ -28,7 +28,15 @@ public class TeamsTest {
     }
 
     @Test
-    public void getAllTeams_ReturnsAllTeams_true() throws Exception {
+    public void getAllTeams_AllTeamsAreReturnedCorrectly_true() throws Exception {
+        Teams testTeams = new Teams("Epicodus");
+        Teams testOtherTeams = new Teams("Portland Code Guild");
+        assertEquals(2, Teams.getAllTeams().size());
+
+    }
+
+    @Test
+    public void getAllTeams_ReturnsAllTeamsInfo_true() throws Exception {
         Teams testTeams = new Teams("Epicodus");
         Teams testOtherTeams = new Teams("Portland Code Guild");
         assertEquals(true, Teams.getAllTeams().contains(testTeams));
