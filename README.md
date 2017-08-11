@@ -7,18 +7,21 @@ Hack-a-Thon offers a few key features:
 - A testy test  
 - A testy test  
 
-## Installation
-Here's how you track your website with Next Project:
 
-TODO: **ADD INFO**
+## Setup/Installation Requirements
 
-## Usage
+* Clone the repo
+* Open in your favorite editor
+* Play!
 
-TODO: Write usage instructions
 
-## Tests
+## Specifications
 
-Describe and show how to run the tests with code examples.
+| Behavior      | Example Input         | Example Output        |
+| ------------- | ------------- | ------------- |
+|   |  |  |
+|  |  |  |
+|  |  |  |
 
 ## Known Bugs
 * "Rich Garrick" <richg341@gmail.com>
