@@ -1,5 +1,6 @@
 package models;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ public class Teams {
     private static ArrayList<Teams> allTeams = new ArrayList<>();
     private static int id;
     private static int teamListTotal;
+    private LocalDateTime createdAt;
 
 
 
@@ -18,6 +20,7 @@ public class Teams {
         this.teamDescription = teamDescription;
         teamListTotal++;
         this.id = teamListTotal;
+        this.createdAt = LocalDateTime.now();
         allTeams.add(this);
     }
 
@@ -52,5 +55,9 @@ public class Teams {
             }
         }
         return test;
+    }
+
+    public LocalDateTime getTeamCreatedAt() {
+        return createdAt;
     }
 }
