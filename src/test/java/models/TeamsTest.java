@@ -22,11 +22,19 @@ public class TeamsTest {
     }
 
     @Test
-    public void newTeamsInstantiatesWithContent_true() throws Exception {
+    public void newTeamsInstantiatesWithContent_Epicodus() throws Exception {
         Teams testTeams = new Teams("Epicodus");
         assertEquals( "Epicodus", testTeams.getTeams());
     }
 
+    @Test
+    public void getAllTeams_ReturnsAllTeams_true() throws Exception {
+        Teams testTeams = new Teams("Epicodus");
+        Teams testOtherTeams = new Teams("Portland Code Guild");
+        assertEquals(true, Teams.getAllTeams().contains(testTeams));
+        assertEquals(true, Teams.getAllTeams().contains(testOtherTeams));
+
+    }
 
 
 }
