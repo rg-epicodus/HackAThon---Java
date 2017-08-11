@@ -13,6 +13,7 @@ public class TeamsTest {
 
     @After
     public void tearDown() throws Exception {
+        Teams.clearAllTeams();
     }
 
     @Test

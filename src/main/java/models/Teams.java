@@ -26,4 +26,8 @@ public class Teams {
     public static ArrayList<Teams> getAllTeams(){
         return instances;
     }
+
+    public static void clearAllTeams(){
+        instances.clear();
+    }
 }
