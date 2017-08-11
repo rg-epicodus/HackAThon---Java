@@ -21,6 +21,11 @@ public class TeamsTest {
         assertEquals(true, testTeams instanceof Teams);
     }
 
+    @Test
+    public void newTeamsInstantiatesWithContent_true() throws Exception {
+        Teams testTeams = new Teams("Epicodus");
+        assertEquals( true, testTeam.getTeams());
+    }
 
 
 
