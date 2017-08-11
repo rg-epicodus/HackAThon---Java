@@ -17,69 +17,69 @@ public class TeamsTest {
 
     @After
     public void tearDown() throws Exception {
-        Teams.clearAllTeams();
+        Team.clearAllTeams();
     }
 
     @Test
-    public void newTeamsInstanceGetsCorrectlyCreated_true() throws Exception {
-        Teams newTeam = setupNewTeam();
-        assertEquals(true, newTeam instanceof Teams);
+    public void newTeamInstanceGetsCorrectlyCreated_true() throws Exception {
+        Team newTeam = setupNewTeam();
+        assertEquals(true, newTeam instanceof Team);
     }
 
     @Test
-    public void newTeamsInstantiatesWithContent_Epicodus() throws Exception {
-        Teams newTeam = setupNewTeam();
+    public void newTeamInstantiatesWithContent_Epicodus() throws Exception {
+        Team newTeam = setupNewTeam();
         assertEquals( "Epicodus", newTeam.getTeamName());
     }
 
     @Test
-    public void getAllTeams_AllTeamsAreReturnedCorrectly_true() throws Exception {
-        Teams newTeam = setupNewTeam();
-        Teams newOtherTeam = setupNewTeam();
-        assertEquals(2, Teams.getAllTeams().size());
+    public void getAllTeam_AllTeamAreReturnedCorrectly_true() throws Exception {
+        Team newTeam = setupNewTeam();
+        Team newOtherTeam = setupNewTeam();
+        assertEquals(2, Team.getAllTeams().size());
 
     }
 
     @Test
-    public void getAllTeams_ReturnsAllTeamsInfo_true() throws Exception {
-        Teams newTeam = setupNewTeam();
-        Teams newOtherTeam = setupNewTeam();
-        assertEquals(true, Teams.getAllTeams().contains(newTeam));
-        assertEquals(true, Teams.getAllTeams().contains(newOtherTeam));
+    public void getAllTeam_ReturnsAllTeamInfo_true() throws Exception {
+        Team newTeam = setupNewTeam();
+        Team newOtherTeam = setupNewTeam();
+        assertEquals(true, Team.getAllTeams().contains(newTeam));
+        assertEquals(true, Team.getAllTeams().contains(newOtherTeam));
 
     }
 
     @Test
     public void getTeamCreatedAt_instantiatesWithCurrentTime_today() throws Exception {
-        Teams newTeam = setupNewTeam();
+        Team newTeam = setupNewTeam();
         assertEquals(LocalDateTime.now().getDayOfWeek(), newTeam.getTeamCreatedAt().getDayOfWeek());
 
     }
 
     @Test
     public void getTeamId_postInstantiatesWithAnID_1() throws Exception {
-        Teams.clearAllTeams();
-        Teams newTeam = setupNewTeam();
+        Team.clearAllTeams();
+        Team newTeam = setupNewTeam();
         assertEquals(1, newTeam.getTeamId());
     }
 
     @Test
     public void findReturnsCorrectTeamID_true() throws Exception {
-        Teams newTeam = setupNewTeam();
-        assertEquals(1, Teams.findById(newTeam.getTeamId()).getTeamId());
+        Team newTeam = setupNewTeam();
+        assertEquals(1, Team.findById(newTeam.getTeamId()).getTeamId());
     }
 
     @Test
     public void findReturnsCorrectTeamWhenMoreThanOneTeamExists_true() throws Exception {
-        Teams newTeam = setupNewTeam();
-        Teams newOtherTeam = setupNewTeam();
-        assertEquals(2, Teams.findById(newOtherTeam.getTeamId()).getTeamId());
+        Team newTeam = setupNewTeam();
+        Team newOtherTeam = setupNewTeam();
+        assertEquals(2, Team.findById(newOtherTeam.getTeamId()).getTeamId());
     }
 
 
     @Test
-    public void updateChangesTeamsName_true() throws Exception {
-        Teams newTeam = setupNewTeam();
+    public void updateChangesTeamName_true() throws Exception {
+        Team newTeam = setupNewTeam();
         String formerTeamName = newTeam.getTeamName();
         LocalDateTime formerDate = newTeam.getTeamCreatedAt();
         int formerId = newTeam.getTeamId();
@@ -91,20 +91,23 @@ public class TeamsTest {
 
     @Test
     public void newTeamInstantiatesWithTeamDescription_ClassOf2017() throws Exception {
-        Teams newTeam = setupNewTeam();
+        Team newTeam = setupNewTeam();
         assertEquals( "Class of Summer 2017",  newTeam.getTeamDescription());
     }
 
     @Test
     public void newTeamInstantiatesWithTeamMembers_1() throws Exception {
-        Teams newTeam = setupNewTeam();
+        Team newTeam = setupNewTeam();
         newTeam.addTeamMember("Pat");
         assertEquals(1, newTeam.getTeamMembers().size());
     }
 
 
+
+
+
     //helper
-    public Teams setupNewTeam(){
-        return new Teams("Epicodus","Class of Summer 2017");
+    public Team setupNewTeam(){
+        return new Team("Epicodus","Class of Summer 2017");
     }
 }

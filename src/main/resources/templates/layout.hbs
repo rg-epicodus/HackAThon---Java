@@ -1,27 +1,33 @@
-{{#block "header"}}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{#block "title"}}Blog{{/block}}</title>
 
-    <!doctype html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>{{#block "title"}}Hack-A-Thon Portland 2017{{/block}}</title>
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-        <link rel="stylesheet" href="/css/main.css">
-    </head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="/css/main.css">
+
+</head>
     <body>
-{{/block}}
-<div class="page container">
-{{#block "content"}}
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="/">Home</a></li>
+    <li role="presentation"><a href="/about">About the Hack-A-Thon</a></li>
+</ul>
+    <div class="page container">
+        <div class="page-header">
+            <h1>Hack-A-Thon Portland 2017</h1>
+        </div>
 
-
-
-{{/block}}
-
-{{#block "footer"}}
+    <div class="col-md-12">
+        {{#block "content"}}
+        {{/block}}
     </div>
+    </div>
+{{#block "footer"}}
+    <footer class="footer">
+        <div class="container">
+            <!--<p class="text-muted"><a href="/posts/delete">DELETE ALL POSTS</a></p>-->
+        </div>
+    </footer>
     </body>
     </html>
 {{/block}}

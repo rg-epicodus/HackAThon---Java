@@ -3,16 +3,16 @@ input[type=text] {
     color: white;
 }
  body {
-      background-color: #a1dfff;
       background-image: url("/images/background.jpg");
       background-size: cover;
       background-repeat: no-repeat;
-    }
+      color: white;
+}
 
-    html {
-      position: relative;
-      min-height: 100%;
-    }
+html {
+  position: relative;
+  min-height: 100%;
+}
 
 .jumbotron {
     background-color: #3CBC8D;
@@ -20,6 +20,7 @@ input[type=text] {
 }
 
 .well {
-    background-color: #3CBC8D;
+    background-color: rgba(128, 128, 128, 0.7);
+    color: white;
 
 }

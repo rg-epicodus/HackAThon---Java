@@ -1,4 +1,4 @@
-import models.Teams;
+import models.Team;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -14,19 +14,41 @@ public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
 
+        // show new team route
+        get("/teams/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "teamForm.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        // create a new team
+        post("/teams/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            ArrayList<Team> teams = Team.getAllTeams();
+            String teamName = request.queryParams("teamName");
+            String teamDescription = request.queryParams("teamDescription");
+            String teamMember = request.queryParams("teamMember");
+            Team newTeam = new Team(teamName, teamDescription);
+            newTeam.addTeamMember(teamMember);
+            model.put("team", newTeam);
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        // show all teams (root route)
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            ArrayList<Teams> teams = Teams.getAllTeams();
+            ArrayList<Team> teams = Team.getAllTeams();
             model.put("teams", teams);
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-        post("/teams/new", (request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
-            String teamName = request.queryParams("teamName");
-            model.put("teamName", teamName);
-            return new ModelAndView(model, "success.hbs");
+        //get: show about page
+        get("/about", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "about.hbs");
         }, new HandlebarsTemplateEngine());
+
+
+
 
 
 
