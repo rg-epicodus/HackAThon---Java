@@ -45,5 +45,13 @@ public class TeamsTest {
 
     }
 
+    @Test
+    public void getAllTeamMembers_ReturnsTeamMember_true() throws Exception {
+        teamMember newMember = new teamMember("Jo");
+        teamMember newOtherMember = new teamMember("Pat");
+        assertEquals(2, teamMember.getAllMembers().size());
+    }
+
+
 
 }
