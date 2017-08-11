@@ -7,6 +7,7 @@ import java.util.List;
 public class Teams {
     private String teamName;
     private String teamDescription;
+    private ArrayList<String> teamMembers;
     private static ArrayList<Teams> allTeams = new ArrayList<>();
     private static int id;
     private static int teamListTotal;
@@ -21,6 +22,7 @@ public class Teams {
         this.teamCreatedAt = LocalDateTime.now();
         allTeams.add(this);
         this.id = allTeams.size();
+        this.teamMembers = new ArrayList<>();
         teamListTotal++;
     }
 
@@ -60,6 +62,17 @@ public class Teams {
         }
         return test;
     }
+
+    public ArrayList<String> getTeamMembers() {
+        return teamMembers;
+    }
+
+    public void addTeamMember(String teamMemberName){
+        String newMember = teamMemberName;
+        teamMembers.add(newMember);
+    }
+
+
 
     public void updateTeamName(String teamName) {
         this.teamName = teamName;

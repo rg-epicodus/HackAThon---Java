@@ -96,9 +96,10 @@ public class TeamsTest {
     }
 
     @Test
-    public void newTeamInstantiatesWithTeamMembers_Pat() throws Exception {
+    public void newTeamInstantiatesWithTeamMembers_1() throws Exception {
         Teams newTeam = setupNewTeam();
-        assertEquals( "Pat",  newTeam.getTeamMembers());
+        newTeam.addTeamMember("Pat");
+        assertEquals(1, newTeam.getTeamMembers().size());
     }
 
 
