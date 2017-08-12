@@ -1,11 +1,12 @@
 {{#partial "content"}}
-    <p>Team {{ team.teamName }}</p>
-    <ul id="teamList">
-        <li>{{ team.teamDescription }}</li>
-        <li>{{ team.teamMembers }}</li>
-    </ul>
-    <h5>Created At: {{ team.teamCreatedAt }}</h5>
-    <p><a href="/teams/{{team.id}}/update">Edit this Team</a></p>
+    <p>Team</p>
+    <p>{{ team.teamName }}</p>
+    <h5>Created At:</h5>
+    <p> {{ team.teamCreatedAt }}</p>
+    <p>
+        <a href="/teams/{{team.id}}/update">Edit this Team</a>
+        <a href="/teams/{{team.id}}/delete">DELETE this Team (no undo)</a>
+    </p>
 {{/partial}}
 
 {{> layout.hbs}}

@@ -5,10 +5,7 @@ import spark.template.handlebars.HandlebarsTemplateEngine;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import static spark.Spark.get;
-import static spark.Spark.post;
-import static spark.Spark.staticFileLocation;
+import static spark.Spark.*;
 
 public class App {
     public static void main(String[] args) {
@@ -32,8 +29,6 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "teamForm.hbs");
         }, new HandlebarsTemplateEngine());
-
-
 
         // create a new team
         post("/teams/new", (request, response) -> {
@@ -59,9 +54,11 @@ public class App {
 
         //get: show an individual post
         get("/teams/:id", (req, res) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
-            Team team = Team.findById(Integer.parseInt(req.params("id")));
-            model.put("teams", team);
+            Map<String, Object> model = new HashMap<>();
+            int idOfPostToFind = Integer.parseInt(req.params("id"));
+            Team team = Team.findById(idOfPostToFind);
+            model.put("team", team);
+            System.out.println(idOfPostToFind);
             return new ModelAndView(model, "teamInformation.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -82,13 +79,8 @@ public class App {
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
-//        //get: delete an individual post
-//        get("/posts/:id/delete", (req, res) -> {
-//            Map<String, Object> model = new HashMap<>();
-//            Team deleteTeam = Team.findById(Integer.parseInt(req.params("id")));
-//            deleteTeam.deleteTeam();
-//            return new ModelAndView(model, "success.hbs");
-//        }, new HandlebarsTemplateEngine());
+
+
 
 
 
