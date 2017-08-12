@@ -2,9 +2,11 @@
 
     {{#if editTeam}}
         <h1>Edit this Team</h1>
-        <form action="/teams/{{editTeam.id}}/update" method="post">
+        <form action="/teams/{{editTeam.teamId}}/update" method="post">
             <label for="teamName">Edit this team's name</label>
             <input id="teamName" name="teamName" type="text" value="{{editTeam.teamName}}">
+            <button type="submit" class="btn btn-default">Edit this Team</button>
+        </form>
 
     {{else}}
 
@@ -41,11 +43,11 @@
             <!--<input type="checkbox" name="listItem" value="electricity">Additional Electrical Requirements<br>-->
             <!--<input type="checkbox" name="listItem" value="meals">Meals Delivered<br>-->
             <!--<input type="checkbox" name="listItem" value="vip">VIP Happy Hour<br>-->
+        <button type="submit" class="btn btn-default">Create this Team</button>
+        </form>
 
     {{/if}}
 
-        <button type="submit" class="btn btn-default">Create this Team</button>
-        </form>
 
 {{/partial}}
 

@@ -11,7 +11,7 @@ public class Team {
     private static ArrayList<Team> allTeams = new ArrayList<>();
     private LocalDateTime teamCreatedAt;
     private int id;
-    private static int increment = 0;
+//    private static int increment = 0;
 
 
 
@@ -22,8 +22,8 @@ public class Team {
         this.teamDescription = teamDescription;
         this.teamCreatedAt = LocalDateTime.now();
         allTeams.add(this);
-        increment++;
-        this.id = increment;
+//        increment++;
+        this.id = allTeams.size();
         this.teamMembers = new ArrayList<>();
     }
 
@@ -58,13 +58,7 @@ public class Team {
     }
 
     public static Team findById(int id){
-        Team test= null;
-        for (Team allTeam : allTeams) {
-            if (allTeam.getTeamId() == id) {
-                test = allTeam;
-            }
-        }
-        return test;
+        return allTeams.get(id-1);
     }
 
     public ArrayList<String> getTeamMembers() {

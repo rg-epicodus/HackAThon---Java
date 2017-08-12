@@ -55,10 +55,9 @@ public class App {
         //get: show an individual post
         get("/teams/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            int idOfPostToFind = Integer.parseInt(req.params("id"));
-            Team team = Team.findById(idOfPostToFind);
+            int idOfTeamToFind = Integer.parseInt(req.params("id"));
+            Team team = Team.findById(idOfTeamToFind);
             model.put("team", team);
-            System.out.println(idOfPostToFind);
             return new ModelAndView(model, "teamInformation.hbs");
         }, new HandlebarsTemplateEngine());
 
