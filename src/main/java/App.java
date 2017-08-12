@@ -14,6 +14,13 @@ public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
 
+        //get: delete all posts
+        get("/teams/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            Team.clearAllTeams();
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
         // show new team route
         get("/teams/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
@@ -45,6 +52,15 @@ public class App {
         get("/about", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "about.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //get: show an individual post
+        get("/teams/:id", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int findTeamByID = Integer.parseInt(req.params("id")); //pull id - must match route segment
+            Team team = Team.findById(findTeamByID); //use it to find post
+            model.put("team", team);//add it to model for template to display
+            return new ModelAndView(model, "teamInformation.hbs"); //individual post page.
         }, new HandlebarsTemplateEngine());
 
 

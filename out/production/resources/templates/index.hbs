@@ -1,16 +1,14 @@
 {{#partial "content"}}
 
     <h1>Team list</h1>
-    {{#if team}} <!--if teams exist, then -->
-        {{#each team }} <!--loop-->
-            <p>Current Team:</p>
-            <p>{{ teamName }} Team</p> <!--show-->
-            <p>{{ teamDescription }} Team</p> <!--show-->
-            <p>{{ teamMember }} Team</p> <!--show-->
+    {{#if teams}} <!--if teams exist, then -->
+        {{#each teams }} <!--loop-->
+            <h3>Team {{ teamName }}:</h3><br>
+            <p><a href="/teams/{{id}}">read more...</a></p>
 
         {{/each}}
     {{else}} <!--no teams!-->
-        <p>No teams have been entered into the competition!</p>
+        <p>No teams have been entered into the Hack-A-Thon</p>
     {{/if}}
 
     <a href="/teams/new"><button type="submit" class="btn btn-default">Create a new Team</button></a>

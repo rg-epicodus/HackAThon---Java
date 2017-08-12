@@ -1,4 +1,12 @@
 {{#partial "content"}}
+
+    {{#if editPost}}
+        <h1>Edit this Post!</h1>
+        <form action="/posts/{{editPost.id}}/update" method="post">
+            <label for="content">Edit this post's content</label>
+            <input id="content" name="content" type="text" value="{{editPost.content}}">
+        </form>
+    {{else}}
     <h1>Add a new Team!</h1>
 
     <h2>Team Entry Form</h2>
@@ -10,18 +18,18 @@
         <input id="teamDescription" name="teamDescription" type="text"><br>
         <label for="teamMember">Member</label><br>
         <input id="teamMember" name="teamMember" type="text"><br>
-        <h3>Please select any items that may apply</h3><br>
-        <input type="checkbox" name="listItem" value="ada">ADA Access Required<br>
-        <input type="checkbox" name="listItem" value="security">Security<br>
-        <input type="checkbox" name="listItem" value="extrabooth">Extra Booth for Staff<br>
-        <input type="checkbox" name="listItem" value="glutenfree">Gluten Free Snacks<br>
-        <input type="checkbox" name="listItem" value="vegan">Vegan Snacks<br>
-        <input type="checkbox" name="listItem" value="water">Extra Water<br>
-        <input type="checkbox" name="listItem" value="electricity">Additional Electrical Requirements<br>
-        <input type="checkbox" name="listItem" value="meals">Meals Delivered<br>
-        <input type="checkbox" name="listItem" value="vip">VIP Happy Hour<br>
+        <!--<h3>Please select any items that may apply</h3><br>-->
+        <!--<input type="checkbox" name="listItem" value="ada">ADA Access Required<br>-->
+        <!--<input type="checkbox" name="listItem" value="security">Security<br>-->
+        <!--<input type="checkbox" name="listItem" value="extrabooth">Extra Booth for Staff<br>-->
+        <!--<input type="checkbox" name="listItem" value="glutenfree">Gluten Free Snacks<br>-->
+        <!--<input type="checkbox" name="listItem" value="vegan">Vegan Snacks<br>-->
+        <!--<input type="checkbox" name="listItem" value="water">Extra Water<br>-->
+        <!--<input type="checkbox" name="listItem" value="electricity">Additional Electrical Requirements<br>-->
+        <!--<input type="checkbox" name="listItem" value="meals">Meals Delivered<br>-->
+        <!--<input type="checkbox" name="listItem" value="vip">VIP Happy Hour<br>-->
 
-
+    {{/if}}
         <button type="submit" class="btn btn-default">Create this Team</button>
     </form>
 {{/partial}}

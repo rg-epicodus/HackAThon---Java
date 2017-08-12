@@ -24,3 +24,7 @@ html {
     color: white;
 
 }
+
+#teamList li {
+    list-style-type: none;
+}

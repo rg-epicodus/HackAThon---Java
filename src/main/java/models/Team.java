@@ -9,9 +9,8 @@ public class Team {
     private String teamDescription;
     private ArrayList<String> teamMembers;
     private static ArrayList<Team> allTeams = new ArrayList<>();
-    private static int id;
-    private static int teamListTotal;
     private LocalDateTime teamCreatedAt;
+    private int id;
 
 
     //Constructor
@@ -23,11 +22,9 @@ public class Team {
         allTeams.add(this);
         this.id = allTeams.size();
         this.teamMembers = new ArrayList<>();
-        teamListTotal++;
     }
 
     //Getters
-
 
     public String getTeamName() {
         return teamName;
@@ -49,27 +46,20 @@ public class Team {
         return teamCreatedAt;
     }
 
-    public static int getTeamId() {
+    public  int getTeamId() {
         return id;
     }
 
     public static Team findById(int id){
-        Team test= null;
-        for (Team allTeam : allTeams) {
-            if (allTeam.getTeamId() == id) {
-                test = allTeam;
-            }
-        }
-        return test;
-    }
+        return allTeams.get(id-1);    }
 
     public ArrayList<String> getTeamMembers() {
         return teamMembers;
     }
 
     public void addTeamMember(String teamMemberName){
-        String newMember = teamMemberName;
-        teamMembers.add(newMember);
+        String newTeamMember = teamMemberName;
+        teamMembers.add(newTeamMember);
     }
 
 

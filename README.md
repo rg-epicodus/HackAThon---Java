@@ -1,11 +1,11 @@
-# Welcome to Hack-a-Thon!
+# Welcome to Hack-a-Thon Admin Dashboard!
 
-Hack-a-Thon is a Web Application for the Java Course Week 2 Code Rieview at [Epicodus](https://www.epicodus.com/) Code School.
+Hack-a-Thon Admin Dashboard is a Web Application for the Java Course Week 2 Code Review at [Epicodus](https://www.epicodus.com/) Code School.
 
-Hack-a-Thon offers a few key features:
-- A testy test
-- A testy test  
-- A testy test  
+Hack-a-Thon Admin Dashboard offers a few key features:
+- Enter Team Names
+- Enter Team Descriptions
+- Enter Team Members
 
 
 ## Setup/Installation Requirements
@@ -19,9 +19,10 @@ Hack-a-Thon offers a few key features:
 
 | Behavior      | Example Input         | Example Output        |
 | ------------- | ------------- | ------------- |
-|   |  |  |
-|  |  |  |
-|  |  |  |
+|  User inputs team name | Epicodus | Team Epicodus |
+|  User inputs team description | Class of Summer 2017 | Description: Class of Summer 2017 |
+|  User inputs team member | Jane Doe | Team Member: Jane Doe |
+|  User Updates team name | Alpha Bravo | Team Epicodus becomes Team Alpha Bravo|
 
 ## Known Bugs
 * "Rich Garrick" <richg341@gmail.com>
@@ -34,7 +35,7 @@ Hack-a-Thon offers a few key features:
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-![alt text](github-repo-path/IMG_0049.jpg "Description goes here")
+![alt text](/images/background.jpg "The Hack-A-Thon Admin Dashboard")
 
 
 ## License
