@@ -1,10 +1,10 @@
 {{#partial "content"}}
 
-    {{#if editPost}}
+    {{#if editTeam}}
         <h1>Edit this Post!</h1>
-        <form action="/posts/{{editPost.id}}/update" method="post">
-            <label for="content">Edit this post's content</label>
-            <input id="content" name="content" type="text" value="{{editPost.content}}">
+        <form action="/teams/{{editTeam.id}}/update" method="post">
+            <label for="teamName">Edit this team's name</label>
+            <input id="teamName" name="teamName" type="text" value="{{editTeam.teamName}}">
         </form>
     {{else}}
     <h1>Add a new Team!</h1>
@@ -18,6 +18,18 @@
         <input id="teamDescription" name="teamDescription" type="text"><br>
         <label for="teamMember">Member</label><br>
         <input id="teamMember" name="teamMember" type="text"><br>
+        <label for="teamMember">Member</label><br>
+        <input id="teamMember" name="teamMember" type="text"><br>
+        <label for="teamMember">Member</label><br>
+        <input id="teamMember" name="teamMember" type="text"><br>
+        <label for="teamMember">Member</label><br>
+        <input id="teamMember" name="teamMember" type="text"><br>
+        <label for="teamMember">Member</label><br>
+        <input id="teamMember" name="teamMember" type="text"><br>
+        <label for="teamMember">Member</label><br>
+        <input id="teamMember" name="teamMember" type="text"><br>
+
+
         <!--<h3>Please select any items that may apply</h3><br>-->
         <!--<input type="checkbox" name="listItem" value="ada">ADA Access Required<br>-->
         <!--<input type="checkbox" name="listItem" value="security">Security<br>-->

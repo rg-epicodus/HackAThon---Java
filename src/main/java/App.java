@@ -21,11 +21,19 @@ public class App {
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //get: show about page
+        get("/about", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "about.hbs");
+        }, new HandlebarsTemplateEngine());
+
         // show new team route
         get("/teams/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "teamForm.hbs");
         }, new HandlebarsTemplateEngine());
+
+
 
         // create a new team
         post("/teams/new", (request, response) -> {
@@ -48,24 +56,39 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //get: show about page
-        get("/about", (req, res) -> {
-            Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "about.hbs");
-        }, new HandlebarsTemplateEngine());
 
         //get: show an individual post
         get("/teams/:id", (req, res) -> {
-            Map<String, Object> model = new HashMap<>();
-            int findTeamByID = Integer.parseInt(req.params("id")); //pull id - must match route segment
-            Team team = Team.findById(findTeamByID); //use it to find post
-            model.put("team", team);//add it to model for template to display
-            return new ModelAndView(model, "teamInformation.hbs"); //individual post page.
+            Map<String, Object> model = new HashMap<String, Object>();
+            Team team = Team.findById(Integer.parseInt(req.params("id")));
+            model.put("teams", team);
+            return new ModelAndView(model, "teamInformation.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //get: show a form to update a post
+        get("/teams/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            Team editTeam = Team.findById(Integer.parseInt(req.params("id")));
+            model.put("editTeam", editTeam);
+            return new ModelAndView(model, "teamForm.hbs");
+        }, new HandlebarsTemplateEngine());
 
+        //post: process a form to update a post
+        post("/teams/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            String newTeamName = req.queryParams("teamName");
+            Team editTeam = Team.findById(Integer.parseInt(req.params("id")));
+            editTeam.updateTeamName(newTeamName);
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
 
-
+//        //get: delete an individual post
+//        get("/posts/:id/delete", (req, res) -> {
+//            Map<String, Object> model = new HashMap<>();
+//            Team deleteTeam = Team.findById(Integer.parseInt(req.params("id")));
+//            deleteTeam.deleteTeam();
+//            return new ModelAndView(model, "success.hbs");
+//        }, new HandlebarsTemplateEngine());
 
 
 

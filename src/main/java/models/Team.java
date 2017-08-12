@@ -51,7 +51,8 @@ public class Team {
     }
 
     public static Team findById(int id){
-        return allTeams.get(id-1);    }
+        return allTeams.get(id-1);
+    }
 
     public ArrayList<String> getTeamMembers() {
         return teamMembers;
@@ -62,9 +63,10 @@ public class Team {
         teamMembers.add(newTeamMember);
     }
 
-
-
     public void updateTeamName(String teamName) {
         this.teamName = teamName;
     }
+
+
+
 }

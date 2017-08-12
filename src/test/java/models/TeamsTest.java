@@ -72,7 +72,7 @@ public class TeamsTest {
     @Test
     public void findReturnsCorrectTeamWhenMoreThanOneTeamExists_true() throws Exception {
         Team newTeam = setupNewTeam();
-        Team newOtherTeam = setupNewTeam();
+        Team newOtherTeam = new Team("Test", "23444");
         assertEquals(2, Team.findById(newOtherTeam.getTeamId()).getTeamId());
     }
 
