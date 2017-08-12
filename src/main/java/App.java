@@ -11,13 +11,6 @@ public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
 
-        //get: delete all posts
-        get("/teams/delete", (req, res) -> {
-            Map<String, Object> model = new HashMap<>();
-            Team.clearAllTeams();
-            return new ModelAndView(model, "success.hbs");
-        }, new HandlebarsTemplateEngine());
-
         //get: show about page
         get("/about", (req, res) -> {
             Map<String, Object> model = new HashMap<>();

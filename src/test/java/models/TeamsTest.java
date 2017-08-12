@@ -57,7 +57,7 @@ public class TeamsTest {
     }
 
     @Test
-    public void getTeamId_postInstantiatesWithAnID_1() throws Exception {
+    public void getTeamId_teamInstantiatesWithAnID_1() throws Exception {
         Team.clearAllTeams();
         Team newTeam = setupNewTeam();
         assertEquals(1, newTeam.getTeamId());

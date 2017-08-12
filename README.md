@@ -35,8 +35,6 @@ Hack-a-Thon Admin Dashboard offers a few key features:
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-![alt text](/images/background.jpg "The Hack-A-Thon Admin Dashboard")
-
 
 ## License
 The MIT License (MIT)

@@ -11,7 +11,6 @@ public class Team {
     private static ArrayList<Team> allTeams = new ArrayList<>();
     private LocalDateTime teamCreatedAt;
     private int id;
-//    private static int increment = 0;
 
 
 
@@ -22,7 +21,6 @@ public class Team {
         this.teamDescription = teamDescription;
         this.teamCreatedAt = LocalDateTime.now();
         allTeams.add(this);
-//        increment++;
         this.id = allTeams.size();
         this.teamMembers = new ArrayList<>();
     }
