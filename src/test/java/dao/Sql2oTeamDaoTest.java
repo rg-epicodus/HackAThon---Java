@@ -42,7 +42,12 @@ public class Sql2oTeamDaoTest {
         assertEquals(team, foundTeam);
     }
 
-
+    @Test
+    public void getlistofAllTeams() throws Exception {
+        Team team = setupNewTeam();
+        teamDao.add(team);
+        assertEquals(1, teamDao.getAll().size());
+    }
 
 
 

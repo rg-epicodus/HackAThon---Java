@@ -29,12 +29,6 @@ public class Sql2oTeamDao {
     }
 
 
-    public List<Team> getAll() {
-        try (Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM team")
-                    .executeAndFetch(Team.class);
-        }
-    }
 
 
     public Team findById(int id) {
@@ -45,6 +39,12 @@ public class Sql2oTeamDao {
         }
     }
 
+//    public List<Team> getAll() {
+//        try (Connection con = sql2o.open()) {
+//            return con.createQuery("SELECT * FROM team")
+//                    .executeAndFetch(Team.class);
+//        }
+//    }
 
 
 }
