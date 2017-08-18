@@ -1,5 +1,6 @@
 package dao;
 
+import models.Member;
 import models.Team;
 
 import java.util.List;
@@ -11,7 +12,7 @@ public interface TeamDao {
 
     //read
     List<Team> getAll();
-
+    List<Member> getAllMembersByTeam (int teamId);
     Team findById(int id);
 
     //update

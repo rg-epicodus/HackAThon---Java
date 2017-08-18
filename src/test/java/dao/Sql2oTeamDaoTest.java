@@ -73,12 +73,20 @@ public class Sql2oTeamDaoTest {
         Team otherTeam = setupOtherTeam();
         teamDao.add(team);
         teamDao.add(otherTeam);
-        int daoSize = teamDao.getAll().size();
+        int teamSize = teamDao.getAll().size();
         teamDao.clearAllTeams();
-        assertTrue(daoSize > 0 && daoSize > teamDao.getAll().size());
+        assertTrue(teamSize > 0 && teamSize > teamDao.getAll().size());
     }
 
-
+    @Test
+    public void getTeamByName() throws Exception{
+        Team team = setupNewTeam();
+        Team otherTeam = setupOtherTeam();
+        teamDao.add(team);
+        teamDao.add(otherTeam);
+        int name = teamDao.findByName(team.getTeamName());
+        assertEquals(1, name );
+    }
 
 
 
