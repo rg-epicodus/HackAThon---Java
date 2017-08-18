@@ -43,11 +43,24 @@ public class Sql2oTeamDaoTest {
     }
 
     @Test
-    public void getlistofAllTeams() throws Exception {
+    public void getListOfAllTeams() throws Exception {
         Team team = setupNewTeam();
         teamDao.add(team);
         assertEquals(1, teamDao.getAll().size());
     }
+
+    @Test
+    public void updateTeamInformation() throws Exception {
+        String initialDescription = "";
+        Team team = setupNewTeam();
+        teamDao.add(team);
+        teamDao.update("test name", "test description", team.getId());
+        Team updatedTeam = teamDao.findById(team.getId());
+        assertNotEquals(initialDescription, updatedTeam.getTeamName());
+
+
+    }
+
 
 
 
