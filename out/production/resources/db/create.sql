@@ -9,4 +9,5 @@ CREATE TABLE IF NOT EXISTS team (
 CREATE TABLE IF NOT EXISTS member (
     id int PRIMARY KEY auto_increment,
     memberName VARCHAR,
+    teamId INT,
 );

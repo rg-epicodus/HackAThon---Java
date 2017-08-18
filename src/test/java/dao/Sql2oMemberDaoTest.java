@@ -54,7 +54,8 @@ public class Sql2oMemberDaoTest {
         String initialDescription = "";
         Member member = setupNew();
         memberDao.add(member);
-        memberDao.update("test name", member.getId());
+        int num = 1;
+        memberDao.update("test name", member.getId(), num);
         Member updatedMember = memberDao.findById(member.getId());
         assertNotEquals(initialDescription, updatedMember.getMemberName());
     }
@@ -98,11 +99,11 @@ public class Sql2oMemberDaoTest {
 
     //helpers
     public Member setupNew() {
-        return new Member("Wonder Woman");
+        return new Member("Wonder Woman", 1);
     }
 
     public Member setupOther() {
-        return new Member("Elektra");
+        return new Member("Elektra", 1);
     }
 
 

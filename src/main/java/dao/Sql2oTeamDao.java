@@ -1,5 +1,6 @@
 package dao;
 
+import models.Member;
 import models.Team;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -14,7 +15,7 @@ public class Sql2oTeamDao implements TeamDao {
         this.sql2o = sql2o;
     }
 
-
+    @Override
     public void add(Team team) {
         String sql = "INSERT INTO team (teamName, teamDescription) VALUES (:teamName, :teamDescription, )";
         try (Connection con = sql2o.open()) {
@@ -28,7 +29,7 @@ public class Sql2oTeamDao implements TeamDao {
         }
     }
 
-
+    @Override
     public Team findById(int id) {
         try (Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM team WHERE id = :id")
@@ -36,7 +37,7 @@ public class Sql2oTeamDao implements TeamDao {
                     .executeAndFetchFirst(Team.class);
         }
     }
-
+    @Override
     public List<Team> getAll() {
         try (Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM team")
@@ -44,6 +45,7 @@ public class Sql2oTeamDao implements TeamDao {
         }
     }
 
+    @Override
     public void update(String newTeamName, String newTeamDescription, int id){
         String sql = "UPDATE team SET (teamName, teamDescription) = (:teamName, :teamDescription) WHERE id=:id";
         try(Connection con = sql2o.open()){
@@ -57,6 +59,7 @@ public class Sql2oTeamDao implements TeamDao {
         }
     }
 
+    @Override
     public void deleteById(int id) {
         String sql = "DELETE from team WHERE id=:id";
         try (Connection con = sql2o.open()) {
@@ -68,6 +71,7 @@ public class Sql2oTeamDao implements TeamDao {
         }
     }
 
+    @Override
     public void clearAllTeams() {
         String sql = "DELETE from team";
         try (Connection con = sql2o.open()) {
@@ -75,6 +79,17 @@ public class Sql2oTeamDao implements TeamDao {
                     .executeUpdate();
         } catch (Sql2oException ex){
             System.out.println(ex);
+        }
+    }
+
+    @Override
+    public List<Member> getAllMembersByTeam(int teamId) {
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM member WHERE teamId = :teamId")
+                    .addParameter("teamId", teamId)
+                    .addColumnMapping("TEAMID", "teamId")
+                    .addColumnMapping("NAME", "memberName")
+                    .executeAndFetch(Member.class);
         }
     }
 

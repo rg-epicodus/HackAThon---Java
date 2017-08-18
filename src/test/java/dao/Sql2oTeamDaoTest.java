@@ -1,7 +1,6 @@
 package dao;
 import models.Member;
 import models.Team;
-import models.Team;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,6 +20,7 @@ public class Sql2oTeamDaoTest {
         String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "","");
         teamDao = new Sql2oTeamDao(sql2o);
+        memberDao = new Sql2oMemberDao(sql2o);
         conn = sql2o.open();
     }
 
@@ -86,11 +86,10 @@ public class Sql2oTeamDaoTest {
         Team team = setupNewTeam();
         teamDao.add(team);
         int newId = team.getId();
-        Member member = new Member("Donald Trump");
+        Member member = new Member("Donald Trump",newId);
         memberDao.add(member);
         assertEquals(1, teamDao.getAllMembersByTeam(newId).size());
     }
-
 
 
 

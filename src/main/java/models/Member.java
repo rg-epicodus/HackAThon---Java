@@ -3,9 +3,11 @@ package models;
 public class Member {
     private String memberName;
     private int id;
+    private int teamId;
 
-    public Member(String memberName) {
+    public Member(String memberName, int teamId) {
         this.memberName = memberName;
+        this.teamId = teamId;
     }
 
 
@@ -13,6 +15,10 @@ public class Member {
 
     public String getMemberName() {
         return memberName;
+    }
+
+    public int getTeamId() {
+        return teamId;
     }
 
     public int getId() {
@@ -25,6 +31,10 @@ public class Member {
 
     public void setMemberName(String memberName) {
         this.memberName = memberName;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
     }
 
     public void setId(int id) {

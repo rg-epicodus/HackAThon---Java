@@ -43,13 +43,11 @@ public class App {
 //            return new ModelAndView(model, "success.hbs");
 //        }, new HandlebarsTemplateEngine());
 //
-//        // show all teams (root route)
-//        get("/", (request, response) -> {
-//            Map<String, Object> model = new HashMap<String, Object>();
-//            ArrayList<Team> teams = Team.getAllTeams();
-//            model.put("teams", teams);
-//            return new ModelAndView(model, "index.hbs");
-//        }, new HandlebarsTemplateEngine());
+        // show all teams (root route)
+        get("/", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
 //
 //
 //        //get: show an individual post
