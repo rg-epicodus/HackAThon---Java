@@ -26,6 +26,25 @@ public class Sql2oMemberDaoTest {
         conn.close();
     }
 
+    @Test
+    public void addMemberToDatabaseById() throws Exception {
+        Member member = setupNew();
+        int originalMemberId = member.getId();
+        memberDao.add(member);
+        assertNotEquals(originalMemberId, member.getId());
+    }
+
+
+
+    //helpers
+    public Member setupNew() {
+        return new Member("Wonder Woman");
+    }
+
+    public Member setupOther() {
+        return new Member("Elektra");
+    }
+
 
 
 }

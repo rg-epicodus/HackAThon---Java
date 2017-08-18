@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface TeamDao {
 
-    //create
+    // create
     void add(Team team);
 
     //read

@@ -18,11 +18,11 @@ public class App {
         Sql2oTeamDao teamDao = new Sql2oTeamDao(sql2o);
         Sql2oMemberDao memberDao = new Sql2oMemberDao(sql2o);
 
-//        //get: show about page
-//        get("/about", (req, res) -> {
-//            Map<String, Object> model = new HashMap<>();
-//            return new ModelAndView(model, "about.hbs");
-//        }, new HandlebarsTemplateEngine());
+        //get: show about page
+        get("/about", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "about.hbs");
+        }, new HandlebarsTemplateEngine());
 //
 //        // show new team route
 //        get("/teams/new", (req, res) -> {
