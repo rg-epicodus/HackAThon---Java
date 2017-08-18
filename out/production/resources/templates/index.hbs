@@ -1,12 +1,12 @@
 {{#partial "content"}}
 
     <h1>List of teams in competition:</h1>
-        {{#if teams}} <!--if teams exist, then -->
+        {{#if team}} <!--if teams exist, then -->
 
-            {{#each teams }} <!--loop-->
+            {{#each team }} <!--loop-->
 
                 <h3>Team {{ teamName }}:</h3><br>
-                <p><a href="/teams/{{teamId}}">read more...</a></p>
+                <p><a href="/team/{{teamId}}">read more...</a></p>
 
             {{/each}}
 
@@ -16,7 +16,7 @@
 
         {{/if}}
 
-    <a href="/teams/new"><button type="submit" class="btn btn-default">Create a new Team</button></a>
+    <a href="/team/new"><button type="submit" class="btn btn-default">Create a new Team</button></a>
 
 {{/partial}}
 

@@ -1,0 +1,18 @@
+{{#partial "content"}}
+    <h3>{{team.teamName}}</h3>
+    {{#if member}}
+        <h3>{{member.memberName}}</h3>
+    {{/if}}
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted"><a class="btn" href="/team/{{member.teamId}}/member/{{member.id}}/update">Edit this Member</a></p>
+            <p class="text-muted"><a class="btn" href="/team/{{member.teamId}}/member/{{member.id}}/delete">Delete this Member</a></p>
+
+        </div>
+    </footer>
+{{/partial}}
+
+{{> layout.hbs}}

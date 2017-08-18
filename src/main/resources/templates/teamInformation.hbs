@@ -3,9 +3,8 @@
     <ul id="teamList">
         <li>Team Description: {{ team.teamDescription }}</li>
         <li>Team Member: {{ team.teamMembers }}</li>
-        <li>Team Entered: {{ team.teamCreatedAt }}</li>
     </ul>
-        <a href="/teams/{{team.teamId}}/update"><button type="button" class="btn btn-default">Edit this Team</button></a>
+        <a href="/team/{{team.teamId}}/update"><button type="button" class="btn btn-default">Edit this Team</button></a>
     </p>
 {{/partial}}
 
