@@ -67,6 +67,16 @@ public class Sql2oMemberDaoTest {
         assertEquals(0, memberDao.getAll().size());
     }
 
+    @Test
+    public void clearAllClearsAll() throws Exception {
+        Member member  = setupNew();
+        Member otherMember = setupOther();
+        memberDao.add(member);
+        memberDao.add(otherMember);
+        int memberSize = memberDao.getAll().size();
+        memberDao.clearAllMembers();
+        assertTrue(memberSize > 0 && memberSize > memberDao.getAll().size());
+    }
 
 
 
