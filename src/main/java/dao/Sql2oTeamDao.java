@@ -16,7 +16,7 @@ public class Sql2oTeamDao {
 
 
     public void add(Team team) {
-        String sql = "INSERT INTO team (teamName, teamDescription, teamCreatedAt) VALUES (:teamName, :teamDescription, :teamCreatedAt, )";
+        String sql = "INSERT INTO team (teamName, teamDescription) VALUES (:teamName, :teamDescription, )";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql)
                     .bind(team)

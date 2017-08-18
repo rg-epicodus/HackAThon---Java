@@ -7,7 +7,6 @@ import java.util.List;
 public class Team {
     private String teamName;
     private String teamDescription;
-    private LocalDateTime teamCreatedAt;
     private int id;
 
 
@@ -17,7 +16,6 @@ public class Team {
     public Team(String teamName, String teamDescription) {
         this.teamName = teamName;
         this.teamDescription = teamDescription;
-        this.teamCreatedAt = LocalDateTime.now();
     }
 
     //Getters
@@ -31,17 +29,13 @@ public class Team {
     }
 
 
-    public LocalDateTime getTeamCreatedAt() {
-        return teamCreatedAt;
-    }
-
-    public  int getTeamId() {
+    public  int getId() {
         return id;
     }
 
-    public void updateTeamName(String teamName) {
-        this.teamName = teamName;
-    }
+//    public void updateName(String teamName) {
+//        this.teamName = teamName;
+//    }
 
 
 
@@ -52,6 +46,11 @@ public class Team {
         this.id = id;
     }
 
+
+
+    // equals and hashcode
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -61,16 +60,13 @@ public class Team {
 
         if (id != team.id) return false;
         if (!teamName.equals(team.teamName)) return false;
-        if (teamDescription != null ? !teamDescription.equals(team.teamDescription) : team.teamDescription != null)
-            return false;
-        return teamCreatedAt != null ? teamCreatedAt.equals(team.teamCreatedAt) : team.teamCreatedAt == null;
+        return teamDescription != null ? teamDescription.equals(team.teamDescription) : team.teamDescription == null;
     }
 
     @Override
     public int hashCode() {
         int result = teamName.hashCode();
         result = 31 * result + (teamDescription != null ? teamDescription.hashCode() : 0);
-        result = 31 * result + (teamCreatedAt != null ? teamCreatedAt.hashCode() : 0);
         result = 31 * result + id;
         return result;
     }
