@@ -91,7 +91,15 @@ public class Sql2oTeamDaoTest {
         assertEquals(1, teamDao.getAllMembersByTeam(newId).size());
     }
 
-
+    @Test
+    public void getTeamByName() throws Exception{
+        Team team = setupNewTeam();
+        Team otherTeam = setupOtherTeam();
+        teamDao.add(team);
+        teamDao.add(otherTeam);
+        int name = teamDao.findByName(team.getTeamName());
+        assertEquals(1, name );
+    }
 
 
     // helopers
