@@ -1,5 +1,5 @@
 package dao;
-import models.Team;
+import models.Member;
 import models.Member;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -33,6 +33,30 @@ public class Sql2oMemberDaoTest {
         memberDao.add(member);
         assertNotEquals(originalMemberId, member.getId());
     }
+
+    @Test
+    public void existingMemberCanBeFoundById() throws Exception {
+        Member member = setupNew();
+        memberDao.add(member);
+        Member foundMember = memberDao.findById(member.getId());
+        assertEquals(member, foundMember);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
