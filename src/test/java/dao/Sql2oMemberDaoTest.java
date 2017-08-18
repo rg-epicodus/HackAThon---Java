@@ -5,6 +5,7 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 
 import static org.junit.Assert.*;
 
@@ -24,5 +25,7 @@ public class Sql2oMemberDaoTest {
     public void tearDown() throws Exception {
         conn.close();
     }
+
+
 
 }

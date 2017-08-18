@@ -3,6 +3,7 @@ import models.Team;
 import models.Member;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
@@ -23,6 +24,16 @@ public class Sql2oTeamDaoTest {
     @After
     public void tearDown() throws Exception {
         conn.close();
+    }
+
+
+    // helopers
+    public Team setupNewTeam() {
+        return new Team("Epicodus", "Class of Summer 2017");
+    }
+
+    public Team setupOtherTeam() {
+        return new Team("Portland Code Guild", "Class of Winter 2017");
     }
 
 }

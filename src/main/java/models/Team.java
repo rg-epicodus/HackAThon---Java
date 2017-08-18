@@ -7,8 +7,6 @@ import java.util.List;
 public class Team {
     private String teamName;
     private String teamDescription;
-    private ArrayList<String> teamMembers;
-    private static ArrayList<Team> allTeams = new ArrayList<>();
     private LocalDateTime teamCreatedAt;
     private int id;
 
@@ -20,9 +18,6 @@ public class Team {
         this.teamName = teamName;
         this.teamDescription = teamDescription;
         this.teamCreatedAt = LocalDateTime.now();
-        allTeams.add(this);
-        this.id = allTeams.size();
-        this.teamMembers = new ArrayList<>();
     }
 
     //Getters
@@ -35,13 +30,6 @@ public class Team {
         return teamDescription;
     }
 
-    public static ArrayList<Team> getAllTeams(){
-        return allTeams;
-    }
-
-    public static void clearAllTeams(){
-        allTeams.clear();
-    }
 
     public LocalDateTime getTeamCreatedAt() {
         return teamCreatedAt;
@@ -55,20 +43,35 @@ public class Team {
         this.teamName = teamName;
     }
 
-    public static Team findById(int id){
-        return allTeams.get(id-1);
+
+
+    // Setters
+
+
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public ArrayList<String> getTeamMembers() {
-        return teamMembers;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Team team = (Team) o;
+
+        if (id != team.id) return false;
+        if (!teamName.equals(team.teamName)) return false;
+        if (teamDescription != null ? !teamDescription.equals(team.teamDescription) : team.teamDescription != null)
+            return false;
+        return teamCreatedAt != null ? teamCreatedAt.equals(team.teamCreatedAt) : team.teamCreatedAt == null;
     }
 
-    public void addTeamMember(String teamMemberName){
-        String newTeamMember = teamMemberName;
-        teamMembers.add(newTeamMember);
+    @Override
+    public int hashCode() {
+        int result = teamName.hashCode();
+        result = 31 * result + (teamDescription != null ? teamDescription.hashCode() : 0);
+        result = 31 * result + (teamCreatedAt != null ? teamCreatedAt.hashCode() : 0);
+        result = 31 * result + id;
+        return result;
     }
-
-
-
-
 }
