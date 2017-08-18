@@ -7,13 +7,14 @@ import org.sql2o.Sql2oException;
 
 import java.util.List;
 
-public class Sql2oMemberDao {
+public class Sql2oMemberDao implements MemberDao {
     private final Sql2o sql2o;
 
     public Sql2oMemberDao(Sql2o sql2o) {
         this.sql2o = sql2o;
     }
 
+    @Override
     public void add(Member member) {
         String sql = "INSERT INTO member (memberName) VALUES (:memberName, )";
         try (Connection con = sql2o.open()) {
@@ -27,6 +28,7 @@ public class Sql2oMemberDao {
         }
     }
 
+    @Override
     public Member findById(int id) {
         try (Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM member WHERE id = :id")
@@ -35,6 +37,7 @@ public class Sql2oMemberDao {
         }
     }
 
+    @Override
     public List<Member> getAll() {
         try (Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM member")
@@ -42,6 +45,7 @@ public class Sql2oMemberDao {
         }
     }
 
+    @Override
     public void update(String newMemberName, int id){
         String sql = "UPDATE member SET (memberName) = (:memberName) WHERE id=:id";
         try(Connection con = sql2o.open()){
@@ -54,6 +58,7 @@ public class Sql2oMemberDao {
         }
     }
 
+    @Override
     public void deleteById(int id) {
         String sql = "DELETE from member WHERE id=:id";
         try (Connection con = sql2o.open()) {
@@ -65,6 +70,7 @@ public class Sql2oMemberDao {
         }
     }
 
+    @Override
     public void clearAllMembers() {
         String sql = "DELETE from member";
         try (Connection con = sql2o.open()) {

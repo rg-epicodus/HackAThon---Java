@@ -1,6 +1,7 @@
 package dao;
-import models.Team;
 import models.Member;
+import models.Team;
+import models.Team;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +12,8 @@ import static org.junit.Assert.*;
 
 public class Sql2oTeamDaoTest {
     private Sql2oTeamDao teamDao;
+    private Sql2oMemberDao memberDao;
+
     private Connection conn;
 
     @Before
@@ -78,7 +81,15 @@ public class Sql2oTeamDaoTest {
         assertTrue(teamSize > 0 && teamSize > teamDao.getAll().size());
     }
 
-
+    @Test
+    public void getAllMembersByTeam()throws Exception {
+        Team team = setupNewTeam();
+        teamDao.add(team);
+        int newId = team.getId();
+        Member member = new Member("Donald Trump");
+        memberDao.add(member);
+        assertEquals(1, teamDao.getAllMembersByTeam(newId).size());
+    }
 
 
 
