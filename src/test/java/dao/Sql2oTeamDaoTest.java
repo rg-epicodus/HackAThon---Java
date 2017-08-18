@@ -26,6 +26,13 @@ public class Sql2oTeamDaoTest {
         conn.close();
     }
 
+    @Test
+    public void addTeamToDatabaseById() throws Exception {
+        Team team = setupNewTeam();
+        int originalTeamId = team.getId();
+        teamDao.add(team);
+        assertNotEquals(originalTeamId, team.getId());
+    }
 
     // helopers
     public Team setupNewTeam() {
