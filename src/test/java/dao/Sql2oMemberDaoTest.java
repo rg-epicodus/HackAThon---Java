@@ -54,7 +54,7 @@ public class Sql2oMemberDaoTest {
         String initialDescription = "";
         Member member = setupNew();
         memberDao.add(member);
-        memberDao.update("test name", "test description", member.getId());
+        memberDao.update("test name", member.getId());
         Member updatedMember = memberDao.findById(member.getId());
         assertNotEquals(initialDescription, updatedMember.getMemberName());
     }

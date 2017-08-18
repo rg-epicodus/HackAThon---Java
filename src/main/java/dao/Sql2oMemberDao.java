@@ -42,6 +42,18 @@ public class Sql2oMemberDao {
         }
     }
 
+    public void update(String newMemberName, int id){
+        String sql = "UPDATE member SET (memberName) = (:memberName) WHERE id=:id";
+        try(Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("memberName", newMemberName)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
+
 
 
 }
