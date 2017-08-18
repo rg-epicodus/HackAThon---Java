@@ -25,4 +25,13 @@ public class Sql2oMemberDao {
         }
     }
 
+    public Member findById(int id) {
+        try (Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM member WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Member.class);
+        }
+    }
+
+
 }
