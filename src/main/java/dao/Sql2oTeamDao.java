@@ -37,13 +37,13 @@ public class Sql2oTeamDao {
     }
 
 
-    public Team findById(int id) {
-        try (Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM team WHERE id = :id")
-                    .addParameter("id", id)
-                    .executeAndFetchFirst(Team.class);
-        }
-    }
+//    public Team findById(int id) {
+//        try (Connection con = sql2o.open()) {
+//            return con.createQuery("SELECT * FROM team WHERE id = :id")
+//                    .addParameter("id", id)
+//                    .executeAndFetchFirst(Team.class);
+//        }
+//    }
 
 
 
