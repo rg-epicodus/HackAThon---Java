@@ -65,6 +65,15 @@ public class Sql2oMemberDao {
         }
     }
 
+    public void clearAllMembers() {
+        String sql = "DELETE from member";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .executeUpdate();
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+    }
 
 
 }
