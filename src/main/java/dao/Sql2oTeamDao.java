@@ -29,8 +29,6 @@ public class Sql2oTeamDao {
     }
 
 
-
-
     public Team findById(int id) {
         try (Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM team WHERE id = :id")
@@ -46,5 +44,17 @@ public class Sql2oTeamDao {
         }
     }
 
+    public void update(String newTeamName, String newTeamDescription, int id){
+        String sql = "UPDATE team SET (teamName, teamDescription) = (:teamName, :teamDescription) WHERE id=:id";
+        try(Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("teamName", newTeamName)
+                    .addParameter("teamDescription", newTeamDescription)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
 
 }
