@@ -42,6 +42,13 @@ public class Sql2oMemberDaoTest {
         assertEquals(member, foundMember);
     }
 
+    @Test
+    public void getListOfAllMembers() throws Exception {
+        Member member = setupNew();
+        memberDao.add(member);
+        assertEquals(1, memberDao.getAll().size());
+    }
+
 
 
 
