@@ -19,5 +19,5 @@ public interface TeamDao {
 
 
     //DESTROY
-
+    void deleteById(int id);
 }

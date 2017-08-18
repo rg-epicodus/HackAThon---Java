@@ -33,9 +33,9 @@ public class Team {
         return id;
     }
 
-//    public void updateName(String teamName) {
-//        this.teamName = teamName;
-//    }
+    public void updateName(String teamName) {
+        this.teamName = teamName;
+    }
 
 
 
