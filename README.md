@@ -1,11 +1,11 @@
 # Welcome to Hack-a-Thon Admin Dashboard!
 
-Hack-a-Thon Admin Dashboard is a Web Application for the Java Course Week 2 Code Review at [Epicodus](https://www.epicodus.com/) Code School.
+Hack-a-Thon Admin Dashboard is a Web Application for the Java Course Week 3 Code Review at [Epicodus](https://www.epicodus.com/) Code School.
 
 Hack-a-Thon Admin Dashboard offers a few key features:
-- Enter Team Names
-- Enter Team Descriptions
-- Enter Team Members
+- Enter , Delete and Edit Team Names
+- Enter , Delete and Edit Team Descriptions
+- Enter , Delete and Edit Team Members
 
 
 ## Setup/Installation Requirements
@@ -23,6 +23,9 @@ Hack-a-Thon Admin Dashboard offers a few key features:
 |  User inputs team description | Class of Summer 2017 | Description: Class of Summer 2017 |
 |  User inputs team member | Jane Doe | Team Member: Jane Doe |
 |  User Updates team name | Alpha Bravo | Team Epicodus becomes Team Alpha Bravo|
+|  User Updates team desription | Class of Winter 2017 | Summer 2017 becomes Class of Winter 2017|
+|  User Updates team member | Saul Goodman | Team Member: Jane Doe becomes Team Member: Saul Goodman|
+
 
 ## Known Bugs
 * "Rich Garrick" <richg341@gmail.com>
