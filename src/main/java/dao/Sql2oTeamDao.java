@@ -93,4 +93,14 @@ public class Sql2oTeamDao implements TeamDao {
         }
     }
 
+    @Override
+    public Integer findByName(String teamName) {
+        try(Connection con = sql2o.open()){
+            return (Integer) con.createQuery("SELECT id FROM team WHERE teamName = :teamName")
+                    .addParameter("teamName", teamName)
+                    .executeAndFetchFirst(Integer.class);
+        }
+    }
+
+
 }

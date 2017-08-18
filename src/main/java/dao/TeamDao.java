@@ -14,6 +14,7 @@ public interface TeamDao {
     List<Team> getAll();
     List<Member> getAllMembersByTeam (int teamId);
     Team findById(int id);
+    Integer findByName(String name);
 
     //update
     void update(String newTeamName, String newTeamDescription, int id);

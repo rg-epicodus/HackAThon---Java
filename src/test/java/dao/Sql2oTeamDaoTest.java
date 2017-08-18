@@ -97,8 +97,8 @@ public class Sql2oTeamDaoTest {
         Team otherTeam = setupOtherTeam();
         teamDao.add(team);
         teamDao.add(otherTeam);
-        int name = teamDao.findByName(team.getTeamName());
-        assertEquals(1, name );
+        int teamName = teamDao.findByName(team.getTeamName());
+        assertEquals(1, teamName );
     }
 
 
