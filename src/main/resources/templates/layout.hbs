@@ -11,23 +11,6 @@
 <ul class="nav nav-tabs">
     <li role="presentation" class="active"><a href="/">Home</a></li>
     <li role="presentation"><a href="/about">About the Hack-A-Thon</a></li>
-    <li role="presentation"><a href="/team/{{id}}">{{teamName}}</a></li>
-    <li role="presentation" class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            Teams <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
-            {{#if team}}
-                {{#each team}}
-                    <li><a href="/team/{{id}}">{{teamName}}</a></li>
-                {{/each}}
-                <li><a href="/team/new">Add a new Team</a></li>
-
-            {{else}}
-                <li><a href="/team/new">Add a new Team</a></li>
-            {{/if}}
-        </ul>
-    </li>
 </ul>
     <div class="page container">
         <div class="page-header">

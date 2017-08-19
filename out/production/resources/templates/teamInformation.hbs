@@ -1,11 +1,22 @@
 {{#partial "content"}}
-    <p>Team Name {{ team.teamName }}</p>
-    <ul id="teamList">
-        <li>Team Description: {{ team.teamDescription }}</li>
-        <li>Team Member: {{ team.teamMembers }}</li>
-    </ul>
-        <a href="/team/{{team.teamId}}/update"><button type="button" class="btn btn-default">Edit this Team</button></a>
-    </p>
+    <div class="col-md-6">
+        <div class="well">
+            <h3>{{ currentTeam.teamName }}</h3>
+            <p>{{ currentTeam.teamDescription }}</p>
+            {{#if member}}
+                <ul id="teamList">
+                    {{#each member}}
+                        <li>Team Member: {{ currentTeam.teamMember }}</li>
+                    {{/each}}
+                </ul>
+            {{else}}
+                <p>No Members yet</p>
+            {{/if}}
+                <a href="/team/{{currentTeam.id}}/update"><button type="button" class="btn btn-default">Edit this Team</button></a>
+                <a href="/"><button type="button" class="btn btn-default">Back to main page</button></a>
+
+        </div>
+    </div>
 {{/partial}}
 
 {{> layout.hbs}}

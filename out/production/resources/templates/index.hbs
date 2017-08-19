@@ -2,13 +2,16 @@
 
     <h1>List of teams in competition:</h1>
         {{#if team}} <!--if teams exist, then -->
-
+            <div class="row">
             {{#each team }} <!--loop-->
-
-                <h3>Team {{ teamName }}:</h3><br>
-                <p><a href="/team/{{teamId}}">read more...</a></p>
-
+                <div class="col-md-4">
+                    <div class="well">
+                        <h3>{{ teamName }}</h3><br>
+                        <p><a href="/team/{{id}}"><button class="btn btn-default btn-sm center-block">View this team</button></a></p>
+                    </div>
+                </div>
             {{/each}}
+            </div>
 
         {{else}} <!--no teams!-->
 

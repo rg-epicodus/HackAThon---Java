@@ -2,11 +2,11 @@ input[type=text] {
     background-color: #3CBC8D;
     color: white;
 }
- body {
-      background-image: url("/images/background.jpg");
-      background-size: cover;
-      background-repeat: no-repeat;
-      color: white;
+body {
+    background-image: url("/images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
 }
 
 html {
@@ -14,17 +14,17 @@ html {
   min-height: 100%;
 }
 
-.jumbotron {
-    background-color: #3CBC8D;
-
-}
-
 .well {
     background-color: rgba(128, 128, 128, 0.7);
     color: white;
+    text-align:center;
+}
 
+.well h3 {
+    text-decoration: underline;
 }
 
 #teamList li {
     list-style-type: none;
 }
+
