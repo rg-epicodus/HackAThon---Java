@@ -1,0 +1,13 @@
+{{#partial "content"}}
+
+    <h1>WARNING</h1>
+
+    This will delete the team
+    Do you wish to proceed?
+
+    <a href="/"><button type="button" class="btn btn-default center-block">No, take me to Home page</button></a><br><br>
+    <a href="/team/{{deleteTeam.id}}/delete"><button type="button" class="btn btn-default center-block">Yes, delete this team!!!</button></a>
+
+{{/partial}}
+
+{{> layout.hbs}}

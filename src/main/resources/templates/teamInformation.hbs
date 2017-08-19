@@ -6,13 +6,15 @@
             {{#if member}}
                 <ul id="teamList">
                     {{#each member}}
-                        <li>Team Member: {{ currentTeam.teamMember }}</li>
+                        <li>Team Member: {{ currentTeam.member }}</li>
                     {{/each}}
                 </ul>
             {{else}}
                 <p>No Members yet</p>
             {{/if}}
                 <a href="/team/{{currentTeam.id}}/update"><button type="button" class="btn btn-default">Edit this Team</button></a>
+                <a href="/member/new"><button type="button" class="btn btn-default">Enter a new member</button></a>
+                <a href="/team/{{currentTeam.id}}/warning"><button type="button" class="btn btn-default">Delete this Team</button></a>
                 <a href="/"><button type="button" class="btn btn-default">Back to main page</button></a>
 
         </div>

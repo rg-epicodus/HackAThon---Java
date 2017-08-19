@@ -2,6 +2,11 @@ input[type=text] {
     background-color: #3CBC8D;
     color: white;
 }
+
+option[value] {
+    background-color: #3CBC8D;
+}
+
 body {
     background-image: url("/images/background.jpg");
     background-size: cover;

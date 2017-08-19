@@ -20,6 +20,20 @@ public class App {
         Sql2oTeamDao teamDao = new Sql2oTeamDao(sql2o);
         Sql2oMemberDao memberDao = new Sql2oMemberDao(sql2o);
 
+        // get: show warning page for delete all
+        get("/team/warning", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "warning.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        // get: delete all teams
+        get("/team/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            teamDao.clearAllTeams();
+            res.redirect("/");
+            return null;
+        });
+
         // show all teams (root route)
         get("/", (req, res) -> {
             Map<String, Object> model = new HashMap<String, Object>();
@@ -101,6 +115,29 @@ public class App {
             model.put("editTeam", editTeam);
             return new ModelAndView(model, "teamForm.hbs");
         }, new HandlebarsTemplateEngine());
+
+        //get: warning for deleting a team
+        get("/team/:id/warning", (req, res) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            int id = Integer.parseInt(req.params("id"));
+            Team deleteTeam = teamDao.findById(id);
+            model.put("deleteTeam", deleteTeam);
+            return new ModelAndView(model, "warningTeam.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //get: delete team by id
+        get("/team/:id/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            int id = Integer.parseInt(req.params("id"));
+            teamDao.deleteById(id);
+            List<Team> team = teamDao.getAll();
+            model.put("team", team);
+            res.redirect("/");
+            return null;
+        });
+
+
+
 
         //post: show the form to update a team
         post("/team/:id/update", (req, res) -> {
