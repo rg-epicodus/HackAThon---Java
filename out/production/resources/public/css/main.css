@@ -1,17 +1,9 @@
-input[type=text] {
-    background-color: #3CBC8D;
-    color: white;
-}
-
-option[value] {
-    background-color: #3CBC8D;
-}
-
 body {
     background-image: url("/images/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
+
 }
 
 html {
@@ -21,15 +13,16 @@ html {
 
 .well {
     background-color: rgba(128, 128, 128, 0.7);
-    color: white;
     text-align:center;
+    color: black;
 }
 
 .well h3 {
     text-decoration: underline;
 }
 
-#teamList li {
-    list-style-type: none;
+.well h4 {
+    text-decoration: underline;
 }
+
 

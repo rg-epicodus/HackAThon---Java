@@ -3,21 +3,23 @@
         <div class="well">
             <h3>{{ currentTeam.teamName }}</h3>
             <p>{{ currentTeam.teamDescription }}</p>
+            <h4>Team members</h4>
             {{#if member}}
-                <ul id="teamList">
-                    {{#each member}}
-                        <li>Team Member: {{ currentTeam.member }}</li>
-                    {{/each}}
-                </ul>
+                {{#each member}}
+                    <p><a href="/team/{{teamId}}/member/{{id}}">{{this.memberName}}</a></p>
+                {{/each}}
             {{else}}
                 <p>No Members yet</p>
             {{/if}}
-                <a href="/team/{{currentTeam.id}}/update"><button type="button" class="btn btn-default">Edit this Team</button></a>
-                <a href="/member/new"><button type="button" class="btn btn-default">Enter a new member</button></a>
-                <a href="/team/{{currentTeam.id}}/warning"><button type="button" class="btn btn-default">Delete this Team</button></a>
-                <a href="/"><button type="button" class="btn btn-default">Back to main page</button></a>
+                <a href="/team/{{currentTeam.id}}/update"><button type="button" class="btn btn-default btn-sm">Edit this Team</button></a>
+                <a href="/team/{{currentTeam.id}}/member/new"><button type="button" class="btn btn-default btn-sm">Enter a new member</button></a>
+                <a href="/team/{{currentTeam.id}}/warning"><button type="button" class="btn btn-default btn-sm">Delete this Team</button></a><br>
+
 
         </div>
+            <div>
+                <a href="/"><button type="button" class="btn btn-default btn-sm center-block">Back to main page</button></a>
+            </div>
     </div>
 {{/partial}}
 
